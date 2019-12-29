@@ -1,9 +1,19 @@
 
-# Ruuvi gateway
+# Ruuvi 🔩 gateway 🚪
 A simple flask server to relay data from the ruuvi station
 
+
+## Intro
+Ruuvi tags have a [neat app](https://github.com/ruuvi/com.ruuvi.station) that accesses the data of your ruuvi sensors. However the app does not have long term persistence, and you don't have any easy way to export long term data.
+
+The app has, however, support for a gateway, that sends data as POST request to a server. -- The docs can be found [here](https://github.com/ruuvi/com.ruuvi.station/wiki)
+
+This project acts as that gateway to push data to databases (right now only influxdb supported).
+
+
 ## Basics
-1. Deploy the app with your desired backend
+0. Change the configs to your needs
+1. Deploy the app somewhere
 2. Use `<your_server_address>/v3/push` in the Ruuvi station app
 
 ## Authorization (NOT CURRENTLY SUPPORTED! see [issue](https://github.com/ruuvi/com.ruuvi.station/issues/83))
@@ -18,9 +28,10 @@ BASIC_AUTH_PASSWORD='pass'
 
 ## InfluxDB support
 ```
-# Generally required 
 # INFLUXDB PARAMETERS
+
 INFLUX_DB_NAME="ruuvi"  # Mandatory
+
 # INFLUX_URL=           # defaults to 'localhost'
 # INFLUX_PORT=          # defaults to 8086
 # INFLUX_USER=          # defaults to none
