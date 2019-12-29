@@ -9,6 +9,7 @@ verify_ssl = true
 flask = "*"
 flask-basicauth = "*"
 influxdb = "*"
+waitress = "*"
 
 [requires]
 python_version = "3.7"

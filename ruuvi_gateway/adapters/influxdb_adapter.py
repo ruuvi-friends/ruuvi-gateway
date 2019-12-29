@@ -10,12 +10,12 @@ class InfluxAdapter(BaseAdapter):
     """
 
     def __init__(self, config):
-        self.TIMESERIES_NAME = config.get('TIMESERIES_NAME', None)
-        self.INFLUX_DB_NAME = config.get('INFLUX_DB_NAME', None)
-        self.INFLUX_URL = config.get('INFLUX_URL', '127.0.0.1')
-        self.INFLUX_PORT = config.get('INFLUX_PORT', 8086)
-        self.INFLUX_USER = config.get('INFLUX_USER', None)
-        self.INFLUX_PASSWORD = config.get('INFLUX_PASSWORD', None)
+        self.TIMESERIES_NAME = config.get('TIMESERIES_NAME')
+        self.INFLUX_DB_NAME = config.get('INFLUX_DB_NAME')
+        self.INFLUX_URL = config.get('INFLUX_URL') or '127.0.0.1'
+        self.INFLUX_PORT = config.get('INFLUX_PORT') or 8086
+        self.INFLUX_USER = config.get('INFLUX_USER')
+        self.INFLUX_PASSWORD = config.get('INFLUX_PASSWORD')
 
     def is_ready(self):
         return self.INFLUX_DB_NAME and self.TIMESERIES_NAME

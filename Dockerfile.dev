@@ -12,10 +12,10 @@ RUN pip install --upgrade pip && \
     pip install pipenv && \
     pipenv install --dev --system --deploy --ignore-pipfile
 
-ENV FLASK_ENV "production"
-ENV FLASK_DEBUG False
+ENV FLASK_ENV "development"
+ENV FLASK_DEBUG True
 
 ENV FLASK_APP "ruuvi_gateway"
 EXPOSE 5000
 
-ENTRYPOINT [ "waitress-serve", "--port=5000", "--call", "ruuvi_gateway:create_app"]
+ENTRYPOINT ["flask", "run", "--host=0.0.0.0"]
