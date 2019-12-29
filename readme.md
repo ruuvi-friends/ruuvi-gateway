@@ -55,15 +55,18 @@ docker run -p 8888:8888 --network ruuvi-influx chronograf
 ```
 
 2. Run the ruuvi-gateway:
-    a. Using docker
-        * configure the ruuvi-gateway with `INFLUX_URL=influxdb` in the `config.py` (or use the env file)
-        * docker build -t ruuvigateway . 
-        * docker run -p 5000:5000 -v $(pwd)/instance:/app --network ruuvi-influx ruuvigateway
+    
+    *  Using docker
+        - Change the configurations (see configs section)
+        - `docker build -t ruuvig-gateway .` 
+        - `docker run -p 5000:5000 -v --env-file docker_env.env --network ruuvi-influx ruuvig-gateway` 
+        - OR
+        - `docker run -p 5000:5000 -v $(pwd)/instance:/app/instance --network ruuvi-influx ruuvi-gateway`
 
-    b. Using your local environment
-        * The default configurations should be sufficient
-        * pipenv install 
-        * pipenv run `pipenv run flask run --host=0.0.0.0`
+    * Or Using your local environment
+        - Change the configurations in `instance/config.py`
+        - pipenv install 
+        - pipenv run `pipenv run flask run --host=0.0.0.0`
 
 3. When accessing chronograf on localhost:9092, you should also configure it with the influxdb address `influxdb:8086`
 
@@ -72,14 +75,16 @@ docker run -p 8888:8888 --network ruuvi-influx chronograf
 ## Configurations and deployment
 
 Notes about Docker
-It's a bad practice to include the configurations inside the docker image. Especially if they contain secrets. To mitigate this you can either use env variables for the configuration, or you can map the `instance` folder into the docker container. Runing the container without any configurations will possibly result in the message `NO GATEWAYS ARE CONFIGURED!`.
+It's a bad practice to include the configurations inside the docker image. Especially if they contain secrets. To mitigate this you can either use env variables for the configuration, or you can map the `instance` folder into the docker container. Runing the container without any configurations will possibly result in the message `NO GATEWAYS ARE CONFIGURED!`. Your options are:
 
-    a. Give variables via docker run / docker compose, etc
+- Give variables via docker run / docker compose, et
+
        `docker run -p 5000:5000 --env-file docker_env.env ...... ` 
-       `docker run -p 5000:5000 --env INFLUX_DB_NAME=ruuvi --env INFLUX_URL=influxdb .....`
-       etc
 
-    b. Map the instance folder (that is not originally in the image) which will override the defaults
+       `docker run -p 5000:5000 --env INFLUX_DB_NAME=ruuvi --env INFLUX_URL=influxdb .....`
+
+
+- Map the instance folder (that is not originally in the image) which will override the defaults
 
 A production ready image is published in sergioisidoro/ruuvi-gateway in [docker hub](https://hub.docker.com/r/sergioisidoro/ruuvi-gateway)
 
