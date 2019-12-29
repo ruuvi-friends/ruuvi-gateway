@@ -26,6 +26,8 @@ BASIC_AUTH_USERNAME='user'
 BASIC_AUTH_PASSWORD='pass'
 ```
 
+After that you should add those to your Ruuvi mobile app gateway address like: `https://user:pass@<yourserver>/v3/push`
+
 ## InfluxDB support
 ```
 # INFLUXDB PARAMETERS
@@ -55,7 +57,7 @@ docker run -p 8888:8888 chronograf
 
 4. You should start seeing data coming in
 
-# Contributing.
+## Contributing.
 
 To add a new adapter, you sould implement the methods `is_ready`, and `connect_and_push_metrics`. 
 After that, import your adapter in `gateway.py` and it here:
