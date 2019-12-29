@@ -44,7 +44,6 @@ def push():
     """
     request_json = request.json
     measurements = []
-    print (request_json)
 
     if not request_json or 'deviceId' not in request_json:
         abort(400)

@@ -34,7 +34,6 @@ class InfluxAdapter(BaseAdapter):
 
     def datapoint_to_influx_dict(self, datapoint):
 
-        print(datapoint.sender_data)
         tags = {}
         tags.update(datapoint.tag_data)
         tags["sender_device_id"] = datapoint.sender_data['device_id']
