@@ -1,13 +1,11 @@
 import os
 from flask import Flask
 from flask_basicauth import BasicAuth
-from ruuvi_gateway.blueprints.v1_blueprint import v1_blueprint
 from ruuvi_gateway.blueprints.v3_blueprint import v3_blueprint
 
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
-    app.register_blueprint(v1_blueprint, url_prefix='/v1')
     app.register_blueprint(v3_blueprint, url_prefix='/v3')
 
     app.config.from_mapping(
