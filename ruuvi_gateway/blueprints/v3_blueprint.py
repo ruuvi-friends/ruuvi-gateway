@@ -42,9 +42,9 @@ def push():
             'time': '2019-12-29T19:07:40+0200'
         }
     """
-
     request_json = request.json
     measurements = []
+    print (request_json)
 
     if not request_json or 'deviceId' not in request_json:
         abort(400)
@@ -76,7 +76,7 @@ def push():
             "accelZ": tag['accelZ'],
             "voltage": tag['voltage'],
             "rssi": tag['rssi'],
-            'movementCounter': tag['movementCounter'], 
+            'movement_counter': tag['movementCounter'], 
             'tx_power': tag['txPower'] 
         }
 

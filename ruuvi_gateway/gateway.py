@@ -9,7 +9,7 @@ class RuuviDatapoint:
         # Todo JSON validate the data
         self.iso_timestamp = iso_timestamp
         self.tag_data = tag_data
-        self.sender_data = tag_data
+        self.sender_data = sender_data
         self.sensor_data = sensor_data
 
 class RuuviGateway:
