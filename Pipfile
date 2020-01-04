@@ -5,6 +5,9 @@ verify_ssl = true
 
 [dev-packages]
 pylint = "*"
+pytest-cov = "*"
+codecov = "*"
+coverage = "*"
 
 [packages]
 flask = "*"
@@ -12,8 +15,6 @@ flask-basicauth = "*"
 influxdb = "*"
 waitress = "*"
 python-dateutil = "*"
-pytest-cov = "*"
-codecov = "*"
 
 [requires]
 python_version = "3.7"
