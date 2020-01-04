@@ -1,4 +1,10 @@
 
+[![Build Status](https://travis-ci.org/sergioisidoro/ruuvi-gateway.svg?branch=master)](https://travis-ci.org/sergioisidoro/ruuvi-gateway)
+
+
+[![codecov](https://codecov.io/gh/sergioisidoro/ruuvi-gateway/branch/master/graph/badge.svg)](https://codecov.io/gh/sergioisidoro/ruuvi-gateway)
+
+
 # Ruuvi 🔩 gateway 🚪
 A simple flask server to relay data from the ruuvi station
 
@@ -17,7 +23,7 @@ This project acts as that gateway to push data to databases
 
 0. Change the configs or provide them them in the docker env
 1. Deploy the app somewhere
-2. Use `<your_server_address>/v3/push` in the Ruuvi station app
+2. Use `<your_server_address>/station/v3/push` in the Ruuvi station app
 
 ## Authorization 
 **CURRENTLY NOT SUPPORTED! - see [issue in app repo](https://github.com/ruuvi/com.ruuvi.station/issues/83)**
@@ -31,7 +37,7 @@ BASIC_AUTH_USERNAME='user'
 BASIC_AUTH_PASSWORD='pass'
 ```
 
-After that you should add those to your Ruuvi mobile app gateway address like: `https://user:pass@<yourserver>/v3/push`
+After that you should add those to your Ruuvi mobile app gateway address like: `https://user:pass@<yourserver>/station/v3/push`
 
 ## InfluxDB support
 ```
@@ -103,6 +109,9 @@ def __init__(self, config):
             your_adapter
         ]
 ```
+
+To see data, and add test cases, head over to /tests/fixtures.py
+
 
 ## 🥳 Authors
 * [Sergio Isidoro](www.sergioisidoro.com)

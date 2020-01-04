@@ -1,17 +1,17 @@
 import os
-from .gateway import RuuviDatapoint, RuuviGateway
-from flask import Flask
+from .gateway import RuuviGateway
+from .datapoint import RuuviDatapoint
+from flask import Flask 
 from flask_basicauth import BasicAuth
-from ruuvi_gateway.blueprints.v3_blueprint import v3_blueprint
+from ruuvi_gateway.blueprints.station.v3_blueprint import v3_blueprint
 
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
-    app.register_blueprint(v3_blueprint, url_prefix='/v3')
+    app.register_blueprint(v3_blueprint, url_prefix='/station/v3')
 
     app.config.from_mapping(
-        SECRET_KEY='dev',
-        DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
+        SECRET_KEY=os.urandom(24)
     )
 
     if test_config is None:

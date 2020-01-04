@@ -4,12 +4,17 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pylint = "*"
+pytest-cov = "*"
+codecov = "*"
+coverage = "*"
 
 [packages]
 flask = "*"
 flask-basicauth = "*"
 influxdb = "*"
 waitress = "*"
+python-dateutil = "*"
 
 [requires]
 python_version = "3.7"
