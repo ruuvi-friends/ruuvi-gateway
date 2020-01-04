@@ -15,3 +15,6 @@ INFLUX_URL = os.getenv('INFLUX_URL', 'localhost')
 INFLUX_PORT = os.getenv('INFLUX_PORT')
 INFLUX_USER = os.getenv('INFLUX_USER')
 INFLUX_PASSWORD = os.getenv('INFLUX_PASSWORD')
+
+# CSV 
+CSV_FOLDER = os.getenv('CSV_FOLDER')

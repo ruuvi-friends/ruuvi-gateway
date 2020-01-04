@@ -36,6 +36,19 @@ BASIC_AUTH_PASSWORD='pass'
 
 After that you should add those to your Ruuvi mobile app gateway address like: `https://user:pass@<yourserver>/station/v3/push`
 
+## CSV Adapter
+This is the simplest of use cases, which is to dump all the data to a CSV file.
+All you need to do is set the env variable: `CSV_FOLDER` with the folder (eg. `/User/you/Desktop`)
+
+To keep the files from growing forever, there will be one file per day:
+```
+├── CSV_FOLDER/
+│   ├── 20200101.csv
+│   ├── 20200102.csv
+│   ├── 20200103.csv
+│   └── ...
+```
+
 ## InfluxDB support
 ```
 # INFLUXDB PARAMETERS
