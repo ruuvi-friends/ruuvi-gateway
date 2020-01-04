@@ -1,6 +1,7 @@
 import os
-from .gateway import RuuviDatapoint, RuuviGateway
-from flask import Flask
+from .gateway import RuuviGateway
+from .datapoint import RuuviDatapoint
+from flask import Flask 
 from flask_basicauth import BasicAuth
 from ruuvi_gateway.blueprints.v3_blueprint import v3_blueprint
 
