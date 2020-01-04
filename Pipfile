@@ -12,6 +12,8 @@ flask-basicauth = "*"
 influxdb = "*"
 waitress = "*"
 python-dateutil = "*"
+pytest-cov = "*"
+codecov = "*"
 
 [requires]
 python_version = "3.7"

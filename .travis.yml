@@ -1,0 +1,15 @@
+sudo: false
+language: python
+python:
+    - "3.6"
+    - "3.7"
+    - "3.8"
+
+install:
+  - pip install pipenv
+  - pipenv install --dev
+script:
+  - python -m pytest --cov=codecov
+
+after_success:
+- codecov
