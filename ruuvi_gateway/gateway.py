@@ -1,6 +1,6 @@
 from ruuvi_gateway.utils import logger
 from ruuvi_gateway.adapters.influxdb_adapter import InfluxAdapter
-
+from ruuvi_gateway.adapters.csv_adapter import CsvAdapter
 class RuuviGateway:
     """
     Instanciate all adapters that are available
@@ -8,9 +8,11 @@ class RuuviGateway:
 
     def __init__(self, config):
         influx_adapter = InfluxAdapter(config)
+        csv_adapter = CsvAdapter(config)
 
         self.adapters = [
-            influx_adapter
+            influx_adapter,
+            csv_adapter
         ]
         self.adapters = list(filter(lambda x: x.is_ready(), self.adapters))
         if len(self.adapters) == 0:
