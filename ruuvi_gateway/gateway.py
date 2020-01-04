@@ -8,13 +8,13 @@ class RuuviGateway:
 
     def __init__(self, config):
         influx_adapter = InfluxAdapter(config)
-        
+
         self.adapters = [
             influx_adapter
         ]
         self.adapters = list(filter(lambda x: x.is_ready(), self.adapters))
         if len(self.adapters) == 0:
-            logger.warn("NO GATEWAYS ARE CONFIGURED!")
+            logger.warning("NO GATEWAYS ARE CONFIGURED!")
 
     def dispatch(self, datapoint_list):
         for adapter in self.adapters:
