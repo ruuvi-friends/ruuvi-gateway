@@ -1,6 +1,10 @@
 
 [![Build Status](https://travis-ci.org/sergioisidoro/ruuvi-gateway.svg?branch=master)](https://travis-ci.org/sergioisidoro/ruuvi-gateway)
 
+
+[![codecov](https://codecov.io/gh/sergioisidoro/ruuvi-gateway/branch/master/graph/badge.svg)](https://codecov.io/gh/sergioisidoro/ruuvi-gateway)
+
+
 # Ruuvi 🔩 gateway 🚪
 A simple flask server to relay data from the ruuvi station
 
