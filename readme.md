@@ -14,7 +14,7 @@ This project acts as that gateway to push data to databases
 
 ## Currently supported backends
 * InfluxDb
-
+* CSV file
 
 # Starting
 
